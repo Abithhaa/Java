@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+public class MAT {
+    public MAT() {
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the number of rows and columns : ");
+        int rows = scanner.nextInt();
+        int cols = scanner.nextInt();
+        int[][] matrix = new int[rows][cols];
+        System.out.println("Enter the elements of the matrix:");
+
+        for(int i = 0; i < rows; ++i) {
+            for(int j = 0; j < cols; ++j) {
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+
+        boolean symmetric = isSymmetric(matrix, rows, cols);
+        System.out.println("The transpose of the matrix is:");
+        printTranspose(matrix, rows, cols);
+        if (symmetric) {
+            System.out.println("The matrix is symmetric.");
+        } else {
+            System.out.println("The matrix is not symmetric.");
+        }
+
+        scanner.close();
+    }
+
+    public static boolean isSymmetric(int[][] matrix, int rows, int cols) {
+        if (rows != cols) {
+            return false;
+        } else {
+            for(int i = 0; i < rows; ++i) {
+                for(int j = 0; j < i; ++j) {
+                    if (matrix[i][j] != matrix[j][i]) {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+    }
+
+    public static void printTranspose(int[][] matrix, int rows, int cols) {
+        for(int i = 0; i < cols; ++i) {
+            for(int j = 0; j < rows; ++j) {
+                System.out.print(matrix[j][i] + " ");
+            }
+
+            System.out.println();
+        }
+
+    }
+}
