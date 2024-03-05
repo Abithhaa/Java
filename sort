@@ -1,0 +1,27 @@
+import java.util.Arrays;
+
+public class StringSortingExample {
+    public static void main(String[] args) {
+        // Define an array of strings
+        String[] strings = {"banana", "apple", "orange", "grape", "pear"};
+
+
+        System.out.println("Original array:");
+        printArray(strings);
+
+
+        Arrays.sort(strings);
+
+
+        System.out.println("\nSorted array:");
+        printArray(strings);
+    }
+
+
+    public static void printArray(String[] arr) {
+        for (String s : arr) {
+            System.out.print(s + " ");
+        }
+        System.out.println();
+    }
+}
